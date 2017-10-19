@@ -11,23 +11,22 @@ public class Circles {
 	
 	public Circles(boolean lifeStatus, int startPosX, int startPosY) {
 		this.lifeStatus = lifeStatus;
-		this.posX = startPosX;
-		this.posY = startPosY;	
+		this.posX = startPosX*60;
+		this.posY = startPosY*60 - 10;	
 	}
 	
 	public void setLife(boolean newStatus) {
 		 lifeStatus = newStatus;
 	}
-	public void setPos(int newPosX, int newPosY) {
-		posX = newPosX;
-		posY = newPosY;
+	
+	public void changePos(int PosXDifference, int PosYDifference) {
+		this.posX = posX + PosXDifference*60;
+		this.posY = posY + PosYDifference*60;
 	}
 	
-	
-	public void drawCircle(Graphics g, int posX, int posY) {
-		g.setColor(Color.YELLOW);
-		g.drawOval(posX, posY, 100, 100);
-		
+	public void setPos(int newPosX, int newPosY) {
+		this.posX = newPosX*60;
+		this.posY = newPosY*60;
 	}
 	
 	public int getXPos() {

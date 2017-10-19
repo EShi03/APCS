@@ -19,35 +19,39 @@ public class Mho extends Circles {
 	public void mhoMove(Happy happy1) {
 		//diag right up
 		if(this.posX <  happy1.getXPos() && this.posY < happy1.getYPos()) {
-			
+			this.posX = this.posX + 1;
+			this.posY = this.posY - 1;
 		}
 		//diag right down
 		else if(this.posX > happy1.getXPos() && this.posY < happy1.getYPos()) {
-			
+			this.posX = this.posX + 1;
+			this.posY = this.posY + 1;
 		}
 		//diag left down
 		else if(this.posX <  happy1.getXPos() && this.posY > happy1.getYPos()) {
-			
+			this.posX = this.posX - 1;
+			this.posY = this.posY + 1;
 		}
 		//diag left up
 		else if(this.posX <  happy1.getXPos() && this.posY < happy1.getYPos()) {
-			
+			this.posX = this.posX - 1;
+			this.posY = this.posY - 1;
 		}
 		//up
 		else if(this.posX ==  happy1.getXPos() && this.posY < happy1.getYPos()) {
-			
+			this.posY = this.posY - 1;
 		}
 		//down
 		else if(this.posX ==  happy1.getXPos() && this.posY > happy1.getYPos()) {
-			
+			this.posY = this.posY + 1;
 		}
 		//left
 		else if(this.posX >  happy1.getXPos() && this.posY == happy1.getYPos()) {
-			
+			this.posX = this.posX - 1;
 		}
 		//right
 		else if(this.posX <  happy1.getXPos() && this.posY == happy1.getYPos()) {
-			
+			this.posX = this.posX + 1;
 		}
 	}
 	

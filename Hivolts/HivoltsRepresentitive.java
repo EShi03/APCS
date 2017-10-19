@@ -1,3 +1,4 @@
+import javax.swing.JApplet;
 
 public class HivoltsRepresentitive{
 	//creates an empty 12by12 string array to represent the game board

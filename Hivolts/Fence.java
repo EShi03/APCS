@@ -11,8 +11,8 @@ public class Fence {
 	private int yPosition;
 	
 	public Fence(int xPosition, int yPosition){
-		this.xPosition = (xPosition+1)*60;
-		this.yPosition = (yPosition+1)*60;
+		this.xPosition = (xPosition)*60;
+		this.yPosition = (yPosition)*60 - 10;
 	}
 	
 	public int getXPos(){

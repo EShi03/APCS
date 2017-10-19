@@ -7,14 +7,10 @@ class ImageFrame extends JFrame{
     public ImageFrame(){
         setTitle("ImageTest");
         setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        repaint();
+        ImageComponent component = new ImageComponent();
+        add(component);
+        component.repaint();
     }
-    
-   public void paint(Graphics g) {
-	   ImageComponent component = new ImageComponent();
-       add(component);
-   }
-   
     public static final int DEFAULT_WIDTH = 720;
     public static final int DEFAULT_HEIGHT = 720;
 }
