@@ -6,10 +6,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JApplet;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-public class ImageTest {
+public class ImageTest{
     public static void main(String[] args){
         EventQueue.invokeLater(new Runnable() {
             public void run(){

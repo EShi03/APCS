@@ -12,7 +12,7 @@ public class Circles {
 	public Circles(boolean lifeStatus, int startPosX, int startPosY) {
 		this.lifeStatus = lifeStatus;
 		this.posX = startPosX*60;
-		this.posY = startPosY*60 - 10;	
+		this.posY = startPosY*60;	
 	}
 	
 	public void setLife(boolean newStatus) {
@@ -36,5 +36,6 @@ public class Circles {
 	public int getYPos() {
 		return this.posY;
 	}
+	
 
 }

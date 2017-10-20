@@ -12,5 +12,5 @@ class ImageFrame extends JFrame{
         component.repaint();
     }
     public static final int DEFAULT_WIDTH = 720;
-    public static final int DEFAULT_HEIGHT = 720;
+    public static final int DEFAULT_HEIGHT = 740;
 }
