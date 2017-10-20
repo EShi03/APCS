@@ -1,6 +1,11 @@
 import javax.swing.JApplet;
 
 public class HivoltsRepresentitive{
+	//Note, there was an implemented way of doing randomly placed objects without repeating it until it was right,
+	//but it was discovered really late into the project that it was slightly flawed (mho could spawn on top of fence
+	// and override it). Thus the code is now randomized until it is right.
+	
+	
 	//creates an empty 12by12 string array to represent the game board
 	//and runs helper methods to set the board up, fill it with blanks, and printing the grid out
 	private static String[][] grid = new String[12][12];

@@ -4,7 +4,8 @@ import javax.swing.JFrame;
 //this is the class for the opposing character
 //color is blue
 public class Mho extends Circles {
-
+	
+	//super constructor from circles class
 	public Mho(boolean lifeStatus, int startPosX, int startPosY) {
 		super(lifeStatus, startPosX, startPosY);
 	}
@@ -31,6 +32,8 @@ public class Mho extends Circles {
 		}
 	}
 	
+	//unused because arraylist was better
+	/*
 	public static Mho[] checkLifeStatus(Mho[] mhos) {
 		Mho[] retMhos = new Mho[numberOfLiveMhos(mhos)];
 		int mhoCounter = 0;
@@ -52,8 +55,9 @@ public class Mho extends Circles {
 		}
 		return retval;
 	}
+	*/
 
-	//when the mho the player does a move, mho
+	//when the mho the player does a move, mho takes the shortest path to happy
 	public void mhoMove(Happy happy1) {
 		//diag right up
 		if(this.posX <  happy1.getXPos() && this.posY < happy1.getYPos()) {
@@ -128,7 +132,7 @@ public class Mho extends Circles {
 		}
 		*/
 	}
-	
+	//getter for lifestatus of a mho
 	public boolean getLife() {
 		return this.lifeStatus;
 	}
