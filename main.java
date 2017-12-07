@@ -1,113 +1,58 @@
-package sort;
+package mapcar;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
 
 public class main {
-
+	
 	public static void main(String[] args) {
+		//arraylist as my input list into mapcar
+		List<Object> test = new ArrayList<Object>();
 		
-		//test int array
-		int[] num = {5, 1, 3, 9, 8 ,3, 4, 5};
+		//two test cases, one for toUpCase and one for sqr (squaring the number)
+		test.addAll(Arrays.asList("hello", "bed", "sleep"));
+		//test.addAll(Arrays.asList(1, 2, 3, 4, 5));
 		
-		//printing out values of bubble sort
-		for(int i = 0; i < num.length; i++) {
-			System.out.print(bubbleSort(num)[i]);
+		//loop to print out the return arraylist of mapcar
+		for(int i = 0; i < test.size(); i++) {
+			System.out.println(mapcar(main::toUpCase, test).get(i));
 		}
-		
-		//spacing
-		System.out.println(" ");
-		
-		//printing out values of insertion sort
-		for(int i = 0; i < num.length; i++) {
-			System.out.print(insertionSort(num)[i]);
-		}
-		
-		//spacing
-		System.out.println(" ");
-		
-		//printing out values of selection sort
-		for(int i = 0; i < num.length; i++) {
-			System.out.print(selectionSort(num)[i]);
-		}
-		
 	}
 	
-	private static int[] bubbleSort(int[] num) {
+	private static List<Object> mapcar(Function<Object, Object> function, List<Object> arg1) {
 		
-		//return value
-		int[] retval = num;
+		//retval of type list to return the modified lists
+		List<Object> retval = new ArrayList<Object>();
 		
-		// int to store a value
-		int holder;
-		
-		//double nested loop that checks if one value of retval is bigger than the next, if so then swap them
-		// double nested loop ensures that it goes through the whole array
-		for(int i = 0; i < num.length-1; i++) {
-			for(int j = 0; j < num.length-1; j++) {
-				if(retval[i] > retval[i+1]) {
-					holder = retval[i];
-					retval[i] = retval[i+1];
-					retval[i+1] = holder;
-				}
+		//loop to go through all objects of the list
+		for(int i = 0; i < arg1.size(); i++) {
+			
+			//try and catch to see if the types of the method and list elements are compatible because
+			//Any list of objects and any type of method can be passed through
+			//try block tries to run the function with the current element of the input list and then adds it
+			//to retval
+			try {
+				retval.add(function.apply(arg1.get(i)));
+			}
+			catch(RuntimeException e) {
+				retval.add("Wrong Object for this method");
+				return retval;
 			}
 		}
+		//returns the modified list
 		return retval;
 	}
 	
-	
-	private static int[] insertionSort(int[] num) {
-
-		//return value
-		int[] retval = num;
-		
-		// int to store selected value
-		int holder;
-		
-		// int to store a value
-		int holder2;
-		
-		//double nested loop that checks if one value of retval is bigger than the next after the selected value, if so then swap the values
-		// double nested loop ensures that it goes through the whole array
-		//there is an error in this one because I don't know how to insert the selected value in a loop while only doing it once
-		for(int i = 0; i < num.length-1; i++) {
-			for(int j = 0; j < i; j++) {
-				if(retval[i] <= retval[j]) {
-					holder = retval[i];
-					holder2 = retval[j+1];
-					retval[j+1] = retval[j];
-					retval[j] = holder2;
-				}
-			}
-		}
-		return retval;
-		
+	//method #1 (have to type cast because any object can be passed in)
+	private static String toUpCase(Object str) {
+		return ((String) str).toUpperCase();
 	}
 	
-	
-	private static int[] selectionSort(int[] num) {
-
-		//return value
-		int[] retval = num;
-		
-		// int to store a value
-		int holder;
-		
-		// int to store the position of the minimum value in the unsorted array
-		int minPos;
-			
-		for(int i = 0; i < num.length-1; i++) {
-			
-			//finds the minimum value in the unsorted array
-			if(retval[i] < retval[i+1]) {
-				minPos = i;
-			}
-			else {
-				minPos = i+1;
-			}
-			//code that switches the minimum value and the value of the beginning of the unsorted array
-			holder = retval[i];
-			retval[i] = retval[minPos];
-			retval[minPos] = holder;
-		}
+	//method #2 (have to type cast because any object can be passed in)
+	private static Integer sqr(Object num) {
+		Integer retval = ((Integer)num)*((Integer)num);
 		return retval;
 	}
 }
-
